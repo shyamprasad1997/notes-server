@@ -65,39 +65,39 @@ func Init() *logrus.Logger {
 func (l *Logger) Info(ctx context.Context, args ...interface{}) {
 	requestID := utils.GetRequestIDFromCtx(ctx)
 	if requestID != "" {
-		l.logger.WithField(constants.RequestIDKey, requestID).Info(args)
+		l.logger.WithField(constants.RequestIDKey, requestID).Info(args...)
 	}
-	l.logger.Info(args)
+	l.logger.Info(args...)
 }
 
 func (l *Logger) Warn(ctx context.Context, args ...interface{}) {
 	requestID := utils.GetRequestIDFromCtx(ctx)
 	if requestID != "" {
-		l.logger.WithField(constants.RequestIDKey, requestID).Warn(args)
+		l.logger.WithField(constants.RequestIDKey, requestID).Warn(args...)
 	}
-	l.logger.Warn(args)
+	l.logger.Warn(args...)
 }
 
 func (l *Logger) Debug(ctx context.Context, args ...interface{}) {
 	requestID := utils.GetRequestIDFromCtx(ctx)
 	if requestID != "" {
-		l.logger.WithField(constants.RequestIDKey, requestID).Debug(args)
+		l.logger.WithField(constants.RequestIDKey, requestID).Debug(args...)
 	}
-	l.logger.Debug(args)
+	l.logger.Debug(args...)
 }
 
 func (l *Logger) Error(ctx context.Context, args ...interface{}) {
 	requestID := utils.GetRequestIDFromCtx(ctx)
 	if requestID != "" {
-		l.logger.WithField(constants.RequestIDKey, requestID).Error(args)
+		l.logger.WithField(constants.RequestIDKey, requestID).Error(args...)
 	}
-	l.logger.Error(args)
+	l.logger.Error(args...)
 }
 
 func (l *Logger) Fatal(ctx context.Context, args ...interface{}) {
 	requestID := utils.GetRequestIDFromCtx(ctx)
 	if requestID != "" {
-		l.logger.WithField(constants.RequestIDKey, requestID).Fatal(args)
+		l.logger.WithField(constants.RequestIDKey, requestID).Fatal(args...)
 	}
-	l.logger.Fatal(args)
+	l.logger.Fatal(args...)
 }

@@ -11,7 +11,7 @@ func (c *NotesController) GetNotes(w http.ResponseWriter, r *http.Request) {
 	response, err := c.service.GetNotes(ctx)
 	if err != nil {
 		c.logger.Warn(ctx, "error in c.service.Login()", err)
-		utils.WriteHttpFailure(w, http.StatusBadRequest, err)
+		utils.WriteHttpFailure(w, http.StatusInternalServerError, err)
 		return
 	}
 	utils.WriteHttpSuccess(w, http.StatusOK, response)
@@ -29,7 +29,7 @@ func (c *NotesController) AddNote(w http.ResponseWriter, r *http.Request) {
 	reponse, err := c.service.AddNote(ctx, request)
 	if err != nil {
 		c.logger.Warn(ctx, "error in c.service.AddNote()", err)
-		utils.WriteHttpFailure(w, http.StatusBadRequest, err)
+		utils.WriteHttpFailure(w, http.StatusInternalServerError, err)
 		return
 	}
 	utils.WriteHttpSuccess(w, http.StatusCreated, reponse)
@@ -47,8 +47,8 @@ func (c *NotesController) DeleteNote(w http.ResponseWriter, r *http.Request) {
 	err = c.service.DeleteNote(ctx, request)
 	if err != nil {
 		c.logger.Warn(ctx, "error in c.service.DeleteNote()", err)
-		utils.WriteHttpFailure(w, http.StatusBadRequest, err)
+		utils.WriteHttpFailure(w, http.StatusInternalServerError, err)
 		return
 	}
-	utils.WriteHttpSuccess(w, http.StatusCreated, "succesfully deleted")
+	utils.WriteHttpSuccess(w, http.StatusOK, "succesfully deleted")
 }

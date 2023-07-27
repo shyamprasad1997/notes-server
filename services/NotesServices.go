@@ -32,15 +32,15 @@ func (s *notesService) GetNotes(ctx context.Context) ([]models.Note, error) {
 }
 
 // AddNote - add a new note
-func (s *notesService) AddNote(ctx context.Context, request models.AddNoteRequest) (models.AddNoteRsponse, error) {
+func (s *notesService) AddNote(ctx context.Context, request models.AddNoteRequest) (models.AddNoteResponse, error) {
 	email := utils.GetEmailFromCtx(ctx)
 	request.Email = email
 	id, err := s.repo.AddNote(ctx, request)
 	if err != nil {
 		s.logger.Warn(ctx, "Error in notesService.AddNote(), error from repo.AddNote()")
-		return models.AddNoteRsponse{}, err
+		return models.AddNoteResponse{}, err
 	}
-	return models.AddNoteRsponse{Id: id}, nil
+	return models.AddNoteResponse{Id: id}, nil
 }
 
 // DeleteNote - delete a note

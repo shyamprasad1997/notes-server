@@ -11,7 +11,7 @@ type AddNoteRequest struct {
 	Note  string `json:"note" validate:"required"`
 }
 
-type AddNoteRsponse struct {
+type AddNoteResponse struct {
 	Id int32 `json:"id"`
 }
 

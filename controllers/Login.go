@@ -18,7 +18,7 @@ func (c *LoginController) Login(w http.ResponseWriter, r *http.Request) {
 	response, err := c.service.Login(ctx, request)
 	if err != nil {
 		c.logger.Warn(ctx, "error in c.service.Login()", err)
-		utils.WriteHttpFailure(w, http.StatusBadRequest, err)
+		utils.WriteHttpFailure(w, http.StatusInternalServerError, err)
 		return
 	}
 	utils.WriteHttpSuccess(w, http.StatusOK, response)

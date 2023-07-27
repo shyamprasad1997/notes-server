@@ -8,7 +8,7 @@ import (
 )
 
 type DB interface {
-	Txn(ctx context.Context, write bool) *memdb.Txn
+	Txn(ctx context.Context, write bool) MemDbTxn
 }
 
 type dbImpl struct {
